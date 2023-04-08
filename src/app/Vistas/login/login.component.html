@@ -1,1 +1,46 @@
-<p>login works!</p>
+<p-toast position="center" [preventOpenDuplicates]="true"></p-toast>
+
+<div class="d-flex justify-content-center overlay" *ngIf="cargando">
+    <div style="margin: auto;">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+</div>
+
+<div class="fondo">
+    <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+        <div class="container-fluid">
+            <div class="contenedorLogin">
+                <div class="mb-3">
+                    <h4 class="azul"><i class="pi pi-sign-in"></i> Accede a tu cuenta</h4>
+                </div>
+
+                <!-- User -->
+                <div class="col-md mb">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="pi pi-user"></i>
+                        </span>
+                        <input formControlName="User" pInputText placeholder="Usuario" required/>
+                    </div>
+                </div>
+
+                <!-- Pass -->
+                <div class="col-md mb">
+                    <div class="p-inputgroup">
+                      <span class="p-float-label">
+                        <input formControlName="Pass" type="password" placeholder="Contraseña" id="pass" pInputText required>
+                      </span>
+                      <ng-container *ngIf="mostrarPass == true then noMostrar; else mostrar"></ng-container>
+                      <ng-template #mostrar><span class="input-group-text cursor" (click)="mostrarPassword()"><i class="pi pi-eye"></i></span></ng-template>
+                      <ng-template #noMostrar><span class="input-group-text cursor" (click)="mostrarPassword()"><i class="pi pi-eye-slash"></i></span></ng-template>
+                    </div>
+                </div>
+
+                <!-- Boton -->
+                <div class="d-grid gap-2 mb-3">
+                    <button pButton pRipple label="Ingresar" type="submit" [disabled]="formLogin.invalid" icon="pi pi-check" class="p-button-info"></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

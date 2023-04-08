@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Vistas/login/login.component';
+import { DashboardComponent } from './Vistas/dashboard/dashboard.component';
+import { DatosComponent } from './Vistas/datos/datos.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
+  {path: 'Home', component: DashboardComponent},
+  {path: 'Crud-Datos', component: DatosComponent}
 ];
 
 @NgModule({

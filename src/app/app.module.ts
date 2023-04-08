@@ -7,18 +7,38 @@ import { LoginComponent } from './Vistas/login/login.component';
 import { DashboardComponent } from './Vistas/dashboard/dashboard.component';
 import { DatosComponent } from './Vistas/datos/datos.component';
 
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    DatosComponent
+    DatosComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    ProgressSpinnerModule,
+    ToastModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    ConfirmationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
