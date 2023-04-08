@@ -6,7 +6,16 @@
     -ms-user-select: none;
     user-select: none;
 }
-  
+
+.imagen {
+    width: 90%;
+    margin: auto;
+}
+
+.imagen img {
+    width: 100%;
+}
+
 .datosUsuario{
     display: flex;
     margin-left: 10%;

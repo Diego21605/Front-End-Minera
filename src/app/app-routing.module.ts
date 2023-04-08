@@ -7,7 +7,7 @@ import { DatosComponent } from './Vistas/datos/datos.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'Home', component: DashboardComponent},
-  {path: 'Crud-Datos', component: DatosComponent}
+  {path: 'Datos', component: DatosComponent}
 ];
 
 @NgModule({

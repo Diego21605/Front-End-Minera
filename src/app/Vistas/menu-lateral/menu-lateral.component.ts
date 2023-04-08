@@ -10,6 +10,7 @@ export class MenuLateralComponent implements OnInit {
 
   display : boolean = false;
   nombreUsuario : string = '';
+  subir1 : boolean = true;
 
   constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService,) {
   }
@@ -20,6 +21,11 @@ export class MenuLateralComponent implements OnInit {
 
   lecturaStorage() {
     this.nombreUsuario = this.storage.get('User');
+  }
+
+  clickIcon1(){
+    if (this.subir1) this.subir1 = false;
+    else this.subir1 = true;
   }
 
 }
