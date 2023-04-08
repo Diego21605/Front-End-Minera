@@ -1,3 +1,90 @@
-.imagen, .imagen img{
+/* .imagen, .imagen img{
     width: 100%;
+} */
+
+h2,
+h5,
+span {
+  font-family: 'raleway';
+}
+
+.container{
+  padding-top: 1rem;
+  background-color: #EFF3F8;
+}
+
+.card-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 5px;
+  padding: 1rem;
+  min-width: 12rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.card-data span {
+  font-size: 12px;
+}
+
+.card-data h2 {
+  font-size: 16px;
+}
+
+.container-graph{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  justify-content: space-around;
+}
+
+.card{
+  background-color: white;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  margin-top: 1rem;
+}
+
+.title-chart{
+  text-align: center;
+}
+
+.w1{
+  width: 10%;
+}
+.w2{
+  width: 20%;
+}
+.w3{
+  width: 30%;
+}
+.w4{
+  width: 40%;
+}
+.w5{
+  width: 50%;
+}
+.w6{
+  width: 60%;
+}
+.w7{
+  width: 70%;
+}
+.w8{
+  width: 80%;
+}
+.w9{
+  width: 90%;
+}
+.w10{
+  width: 100%;
 }

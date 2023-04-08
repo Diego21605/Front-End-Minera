@@ -1,5 +1,47 @@
 <app-menu-lateral></app-menu-lateral>
 
-<div class="imagen">
-    <img src=".\assets\banner-monitores.webp" alt="Plasticaribe S.A.S">
+<div class="container">
+  <div class="card-info">
+    <div class="card-data">
+      <span>Vendidos</span>
+      <h2>303</h2>
+    </div>
+
+    <div class="card-data">
+      <span>Calificacion mas alta</span>
+      <h2>5.0</h2>
+    </div>
+
+    <div class="card-data">
+      <span>Cosas</span>
+      <h2>sasas</h2>
+    </div>
+
+    <div class="card-data">
+      <span>Test</span>
+      <h2>test</h2>
+    </div>
+  </div>
+
+  <div class="container-graph">
+    <div class="card w6">
+      <h5 class="title-chart">Sales</h5>
+      <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+    </div>
+
+    <div class="card w3">
+      <h5 class="title-chart">Sales</h5>
+      <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
+    </div>
+
+    <div class="card w6">
+      <h5 class="title-chart">Sales</h5>
+      <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
+    </div>
+
+    <div class="card w3">
+      <h5 class="title-chart">Sales</h5>
+      <p-chart type="doughnut" [data]="doughnutData" [options]="doughnutOptions"></p-chart>
+    </div>
+  </div>
 </div>
