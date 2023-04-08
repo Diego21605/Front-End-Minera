@@ -1,1 +1,39 @@
-<p>menu-lateral works!</p>
+<p-sidebar [(visible)]="display" id="sidebar" [style]="{width:'27rem'}">
+    <div class="imagen">
+        <img src=".\assets\banner-monitores.webp" alt="Plasticaribe S.A.S">
+    </div>
+    <br>
+    <ul>
+        <!-- Inicio -->
+        <li>
+            <a class="fw-normal" href="Home" role="button">
+              <i class="pi pi-home" style="margin-right: 3%;"></i>
+              <b>Inicio</b>
+            </a>
+        </li>
+
+        <!-- Crud -->
+        <li>
+            <a class="fw-normal" href="" role="button">
+              <i class="pi pi-database" style="margin-right: 3%;"></i>
+              <b>Crud</b>
+            </a>
+        </li>
+          
+    </ul>
+</p-sidebar>
+
+<nav class="navbar">
+    <div class="container-fluid">
+      <p>
+        <button class="botonMenu d-grid gap-2 d-md-flex justify-content-md-start" mat-button (click)="display = true">
+          <b>
+            <span class="user pi pi-list"> Moni<span>tores</span></span>
+          </b>
+        </button>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <span class="user"><i class="pi pi-user"></i> {{nombreUsuario}}</span>
+      </div>
+    </div>
+</nav>

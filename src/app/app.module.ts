@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './Vistas/login/login.component';
 import { DashboardComponent } from './Vistas/dashboard/dashboard.component';
 import { DatosComponent } from './Vistas/datos/datos.component';
+import { LoginComponent } from './Vistas/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { ButtonModule } from 'primeng/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SidebarModule } from 'primeng/sidebar';
+import { ToastModule } from 'primeng/toast';
 import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
 
 @NgModule({
@@ -28,12 +31,15 @@ import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.compone
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    StorageServiceModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ProgressSpinnerModule,
     ToastModule,
     InputTextModule,
     PasswordModule,
     ButtonModule,
+    SidebarModule,
   ],
   providers: [
     MessageService,

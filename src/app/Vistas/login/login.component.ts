@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SESSION_STORAGE, WebStorageService } from 'ngx-webstorage-service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   mostrarPass : boolean = false;
 
   constructor(private frmBuilder : FormBuilder,
-                private router : Router) {
+                private router : Router,
+                  @Inject(SESSION_STORAGE) private storage: WebStorageService,) {
     this.formLogin = this.frmBuilder.group({
       User : [null, Validators.required],
       Pass : [null, Validators.required],
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   // Funcion que va a validar los datos de inicio de sesion
   iniciarSesion() {
+    this.storage.set('User', this.formLogin.value.User);
     this.router.navigate(['/Home']);
   }
 
