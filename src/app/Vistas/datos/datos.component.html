@@ -72,8 +72,69 @@
           </ng-template>
         </p-table>
 
-        <p-dialog header="{{tituloModal}}" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [(visible)]="dialogo" [style]="{width: '50vw'}" [contentStyle]="{height: '300px'}">
-            
+        <p-dialog header="{{tituloModal}}" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [(visible)]="dialogo" [style]="{width: '30rem'}">
+          <ng-template pTemplate="content">
+            <br>
+            <form [formGroup]="formMonitores">
+              <div class="mb-3">
+                <div class="row g-4">
+  
+                  <!-- Marca -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                        <input formControlName="Marca" pInputText id="Marca" required/>
+                        <label htmlFor="Marca">Marca</label>
+                    </span>
+                  </div>
+
+                  <!-- Resolución -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                        <input formControlName="Resolucion" pInputText id="Resolucion" required/>
+                        <label htmlFor="Resolucion">Resolución</label>
+                    </span>
+                  </div>
+                  
+                  <!-- Tamaño de Pantalla -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                        <input formControlName="TamanoPantalla" pInputText id="TamanoPantalla" required/>
+                        <label htmlFor="TamanoPantalla">Tamaño de Pantalla</label>
+                    </span>
+                  </div>
+
+                  <!-- Calificación -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                        <input formControlName="Calificacion" pInputText id="Calificacion" required/>
+                        <label htmlFor="Calificacion">Calificación</label>
+                    </span>
+                  </div>
+
+                  <!-- Velocidad de Pantalla -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                        <input formControlName="VelocidadPantalla" pInputText id="VelocidadPantalla" required/>
+                        <label htmlFor="VelocidadPantalla">Velocidad de Pantalla</label>
+                    </span>
+                  </div>
+                  
+                  <!-- Precio -->
+                  <div class="col-md-6">
+                    <span class="p-float-label">
+                      <p-inputNumber formControlName="Precio" inputId="Precio"></p-inputNumber>
+                      <label htmlFor="Precio">Precio</label>
+                    </span>
+                  </div>
+  
+                  <!--Boton-->
+                  <div class="mb-3">
+                    <button pButton pRipple label="{{tituloModal}} Usuario" [disabled]="formMonitores.invalid" class="p-button-success"></button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </ng-template>
         </p-dialog>
     </div>
 </div>

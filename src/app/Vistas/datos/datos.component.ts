@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
@@ -10,13 +11,24 @@ import { Table } from 'primeng/table';
 export class DatosComponent implements OnInit {
 
   @ViewChild('dt') dt: Table | undefined;
+  formMonitores !: FormGroup;
   cargando : boolean = false;
   datosMonitores : any [] = [];
   columnasSeleccionadas : any [] = [];
   dialogo : boolean = false;
-  tituloModal : string = '';
+  tituloModal : string = 'Crear';
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService,
+                private frmBuilder : FormBuilder,) {
+    this.formMonitores = this.frmBuilder.group({
+      Marca : [null, Validators.required],
+      Resolucion : [null, Validators.required],
+      TamanoPantalla : [null, Validators.required],
+      Calificacion : [null, Validators.required],
+      VelocidadPantalla : [null, Validators.required],
+      Precio : [null, Validators.required],
+    });
+  }
 
   ngOnInit(): void {
   }

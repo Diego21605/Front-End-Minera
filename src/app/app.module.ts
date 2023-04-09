@@ -19,7 +19,8 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
-import { DialogModule } from 'primeng/dialog'
+import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
 import { ChartModule } from 'primeng/chart';
 
@@ -47,7 +48,8 @@ import { ChartModule } from 'primeng/chart';
     TableModule,
     ToolbarModule,
     DialogModule,
-    ChartModule
+    ChartModule,
+    InputNumberModule,
   ],
   providers: [
     MessageService,
