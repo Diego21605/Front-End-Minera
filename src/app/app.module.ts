@@ -17,6 +17,9 @@ import { PasswordModule } from 'primeng/password';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DialogModule } from 'primeng/dialog'
 import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
 
 @NgModule({
@@ -40,6 +43,9 @@ import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.compone
     PasswordModule,
     ButtonModule,
     SidebarModule,
+    TableModule,
+    ToolbarModule,
+    DialogModule,
   ],
   providers: [
     MessageService,
