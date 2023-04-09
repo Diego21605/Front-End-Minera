@@ -1,7 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE, WebStorageService } from 'ngx-webstorage-service';
+import { MessageService } from 'primeng/api';
+import { UsuariosService } from 'src/app/Servicios/Usuarios/usuarios.service';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-login',
@@ -16,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private frmBuilder : FormBuilder,
                 private router : Router,
-                  @Inject(SESSION_STORAGE) private storage: WebStorageService,) {
+                  @Inject(SESSION_STORAGE) private storage: WebStorageService,
+                    private usuarioService : UsuariosService,
+                      private messageService: MessageService,) {
     this.formLogin = this.frmBuilder.group({
       User : [null, Validators.required],
       Pass : [null, Validators.required],
@@ -28,8 +36,17 @@ export class LoginComponent implements OnInit {
 
   // Funcion que va a validar los datos de inicio de sesion
   iniciarSesion() {
-    this.storage.set('User', this.formLogin.value.User);
-    this.router.navigate(['/Home']);
+    let user : string = this.formLogin.value.User;
+    let pass : string = this.formLogin.value.Pass;
+
+    this.usuarioService.GetUsuariologin(user, pass).subscribe(datos => {      
+      for (let i = 0; i < datos.length; i++) {
+        if (datos[i].USERNAME == user && datos[i].PASSWORD == pass) {
+          this.storage.set('User', this.formLogin.value.User);
+          this.router.navigate(['/Home']);
+        } else this.messageService.add({ severity: 'error', summary: '¡Ha ocurrido un error!', detail: '¡El usuario y la contraseña son incorrectos!' });
+      }
+    }, error => { this.messageService.add({ severity: 'error', summary: '¡Ha ocurrido un error!', detail: '¡El usuario y la contraseña son incorrectos!' }); });
   }
 
   // Funcin que va a mostrar o no la contraseña del usuario

@@ -21,16 +21,15 @@
         <p-toolbar styleClass="mb-4 gap-2">
             <ng-template pTemplate="left">
               <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success r-2" style="margin-right: 3%;" (click)="mostrarModal()"></button>
-              <button pButton pRipple label="Eliminar" icon="pi pi-trash"class="p-button-danger"></button>
             </ng-template>
   
             <ng-template pTemplate="right">
-              <button pButton pRipple label="Exportar" icon="pi pi-upload" title="Exportar Excel" class="p-button-success" ></button>
+              <button pButton pRipple label="Exportar" icon="pi pi-upload" title="Exportar Excel" class="p-button-success" (click)="exportarExcel()"></button>
             </ng-template>
         </p-toolbar>
 
         <p-table
-            #dt
+          #dt
           [value]="datosMonitores"
           [resizableColumns]="true"
           columnResizeMode="expand"
@@ -39,11 +38,11 @@
           [paginator]="true"
           [rows]="20"
           [showCurrentPageReport]="true"
-          [rowsPerPageOptions]="[10,20,30,50,70,100]"
+          [rowsPerPageOptions]="[10,20,30,50,70,100,datosMonitores.length]"
           [rowHover]="true"
-          [globalFilterFields]="['Id','Nombre','Area']"
-          [(selection)]="columnasSeleccionadas"
-          currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} registros" >
+          [globalFilterFields]="['Marca','Resolucion','TamanoPantalla','Calificacion','VelocidadPantalla','Precio']"
+          currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} registros"
+          *ngIf="!cargando">
           <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
               <span class="p-input-icon-left">
@@ -53,26 +52,32 @@
             </div>
           </ng-template>
           <ng-template pTemplate="header">
-            <tr >
-              <th style="width: 4rem"><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
-              <th scope="col" pSortableColumn="">Marca <p-sortIcon field=""></p-sortIcon></th>
-              <th scope="col" pSortableColumn="">Resolución <p-sortIcon field=""></p-sortIcon></th>
-              <th scope="col" pSortableColumn=""> Tamano de Pantalla <p-sortIcon field=""></p-sortIcon></th>
-              <th scope="col" pSortableColumn="">Calificación <p-sortIcon field=""></p-sortIcon></th>
-              <th scope="col" pSortableColumn="">Velocidad de Pantalla <p-sortIcon field=""></p-sortIcon></th>
-              <th scope="col" pSortableColumn="">Precio <p-sortIcon field=""></p-sortIcon></th>
+            <tr>
+              <th scope="col" pSortableColumn="Marca">Marca <p-sortIcon field="Marca"></p-sortIcon></th>
+              <th scope="col" pSortableColumn="Resolucion">Resolución <p-sortIcon field="Resolucion"></p-sortIcon></th>
+              <th scope="col" pSortableColumn="TamanoPantalla">Tamano de Pantalla <p-sortIcon field="TamanoPantalla"></p-sortIcon></th>
+              <th scope="col" pSortableColumn="Calificacion">Calificación <p-sortIcon field="Calificacion"></p-sortIcon></th>
+              <th scope="col" pSortableColumn="VelocidadPantalla">Velocidad de Pantalla <p-sortIcon field="VelocidadPantalla"></p-sortIcon></th>
+              <th scope="col" pSortableColumn="Precio">Precio <p-sortIcon field="Precio"></p-sortIcon></th>
               <th scope="col">Editar</th>
               <th scope="col">Eliminar</th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body">  
+          <ng-template pTemplate="body" let-data>  
             <tr>
-                <td><p-button icon="pi pi-plus" styleClass="p-button-success" (click)="mostrarModal()"></p-button></td>
+              <td>{{data.Marca}}</td>
+              <td>{{data.Resolucion}}</td>
+              <td>{{data.TamanoPantalla}}</td>
+              <td>{{data.Calificacion}}</td>
+              <td>{{data.VelocidadPantalla}}</td>
+              <td>{{data.Precio | number : '1.2-2'}}</td>
+              <td><p-button icon="pi pi-plus" styleClass="p-button-success" (click)="mostraMonitorModal(data)"></p-button></td>
+              <td><p-button icon="pi pi-trash" styleClass="p-button-danger" (click)="eliminarMonitor(data)"></p-button></td>
             </tr>          
           </ng-template>
         </p-table>
 
-        <p-dialog header="{{tituloModal}}" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [(visible)]="dialogo" [style]="{width: '30rem'}">
+        <p-dialog header="{{tituloModal}} Monitor" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [(visible)]="dialogo" [style]="{width: '30rem'}">
           <ng-template pTemplate="content">
             <br>
             <form [formGroup]="formMonitores">
@@ -129,7 +134,7 @@
   
                   <!--Boton-->
                   <div class="mb-3">
-                    <button pButton pRipple label="{{tituloModal}} Usuario" [disabled]="formMonitores.invalid" class="p-button-success"></button>
+                    <button pButton pRipple label="{{tituloModal}} Monitor" [disabled]="formMonitores.invalid" class="p-button-success" (click)="registrarMonitor()"></button>
                   </div>
                 </div>
               </div>

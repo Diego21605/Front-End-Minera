@@ -23,6 +23,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
 import { ChartModule } from 'primeng/chart';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ChartModule } from 'primeng/chart';
     MenuLateralComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
