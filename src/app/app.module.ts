@@ -44,13 +44,10 @@ import { ChartModule } from 'primeng/chart';
     PasswordModule,
     ButtonModule,
     SidebarModule,
-<<<<<<< HEAD
     TableModule,
     ToolbarModule,
     DialogModule,
-=======
     ChartModule
->>>>>>> 9c5d727572ea7f7e7bd58b1c9602f8c5fad7b3ee
   ],
   providers: [
     MessageService,
