@@ -120,11 +120,13 @@ export class DatosComponent implements OnInit {
   mostrarModal(){
     this.dialogo = true;
     this.tituloModal = 'Crear';
+    this.formMonitores.reset();
   }
 
   // Funcion que va a reaizar la actualizacion de un monitor
   mostraMonitorModal(data : any){
     this.dialogo = true;
+    this.formMonitores.reset();
     this.registroSeleccionado = data;
     this.tituloModal = 'Actualizar';
     this.formMonitores.patchValue({
