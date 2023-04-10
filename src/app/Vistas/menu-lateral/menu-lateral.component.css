@@ -57,6 +57,8 @@ span{
 .botonMenu{
     background-color: #FFF;
     padding: 5px;
+    border: 1px solid #9b9b9b;
+    border-radius: 4px;
 }
   
 .botonMenu .user:hover{

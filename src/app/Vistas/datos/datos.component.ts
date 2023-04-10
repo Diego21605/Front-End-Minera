@@ -118,6 +118,7 @@ export class DatosComponent implements OnInit {
 
   // Funcion que va a mostrar un modal
   mostrarModal(){
+    this.formMonitores.reset();
     this.dialogo = true;
     this.tituloModal = 'Crear';
     this.formMonitores.reset();

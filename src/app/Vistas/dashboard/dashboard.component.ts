@@ -314,7 +314,7 @@ export class DashboardComponent implements OnInit {
             documentStyle.getPropertyValue('--bluegray-500'),
             documentStyle.getPropertyValue('--blue-500')
           ],
-          label: 'My dataset'
+          label: 'Tasa de Refrezco'
         }
       ],
       labels: this.updateRateTitle
