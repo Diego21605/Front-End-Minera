@@ -8,7 +8,7 @@ span {
   font-family: 'raleway';
 }
 
-.container{
+.container-dashborad{
   padding-top: 1rem;
   background-color: #EFF3F8;
 }
@@ -26,7 +26,7 @@ span {
   flex-direction: column;
   margin: 0 5px;
   padding: 1rem;
-  min-width: 12rem;
+  min-width: 20%;
   border: 1px solid #d7d7d7;
   border-radius: 1rem;
   background-color: white;

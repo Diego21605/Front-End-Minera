@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardComponent } from './Vistas/dashboard/dashboard.component';
 import { DatosComponent } from './Vistas/datos/datos.component';
@@ -23,7 +24,6 @@ import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MenuLateralComponent } from './Vistas/menu-lateral/menu-lateral.component';
 import { ChartModule } from 'primeng/chart';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,9 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     MenuLateralComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     StorageServiceModule,
     BrowserAnimationsModule,

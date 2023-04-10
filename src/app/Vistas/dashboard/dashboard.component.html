@@ -1,47 +1,60 @@
 <app-menu-lateral></app-menu-lateral>
 
-<div class="container">
+<div class="container-dashborad">
   <div class="card-info">
     <div class="card-data">
-      <span>Vendidos</span>
-      <h2>303</h2>
+      <span>Mas Vendido</span>
+      <h2>{{selling}}</h2>
     </div>
 
     <div class="card-data">
       <span>Calificacion mas alta</span>
-      <h2>5.0</h2>
+      <h2>{{highQualification}}</h2>
     </div>
 
     <div class="card-data">
-      <span>Cosas</span>
-      <h2>sasas</h2>
+      <span>Total vendidos</span>
+      <h2>{{count}}</h2>
     </div>
 
     <div class="card-data">
-      <span>Test</span>
-      <h2>test</h2>
+      <span>Total</span>
+      <h2>{{(total | number )}}</h2>
     </div>
   </div>
 
   <div class="container-graph">
-    <div class="card w6">
-      <h5 class="title-chart">Sales</h5>
-      <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
-    </div>
-
-    <div class="card w3">
-      <h5 class="title-chart">Sales</h5>
-      <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
-    </div>
 
     <div class="card w6">
-      <h5 class="title-chart">Sales</h5>
+      <h5 class="title-chart">Ventas</h5>
       <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
     </div>
 
     <div class="card w3">
-      <h5 class="title-chart">Sales</h5>
+      <h5 class="title-chart">Ventas x Marcas</h5>
       <p-chart type="doughnut" [data]="doughnutData" [options]="doughnutOptions"></p-chart>
     </div>
+
+    <div class="card w6">
+      <h5 class="title-chart">Mas vendidos</h5>
+      <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+    </div>
+
+    <div class="card w3">
+      <h5 class="title-chart">Mas Vendidos x Marca</h5>
+      <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
+    </div>
+
+
+    <div class="card w4">
+      <h5 class="title-chart">Tasa de Refrezco</h5>
+      <p-chart type="polarArea" [data]="polarData" [options]="polarOptions"></p-chart>
+    </div>
+
+    <div class="card w5">
+      <h5 class="title-chart">Precio x Resolucion</h5>
+      <p-chart type="bar" [data]="barData2" [options]="barOptions2"></p-chart>
+    </div>
+
   </div>
 </div>
